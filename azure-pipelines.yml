@@ -50,9 +50,10 @@ stages:
         
      steps:     
      - task: DownloadBuildArtifacts@0
-       inputs:
+       displayName : Download Artifacts(*.zip)
+       inputs:         
          buildType: 'current'
-         downloadType: 'single'
+         downloadType: 'specific'
          artifactName: 'drop1'         
          downloadPath: '$(System.ArtifactsDirectory)'
          
