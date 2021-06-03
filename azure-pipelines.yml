@@ -42,7 +42,10 @@ stages:
         contents: '**/$(BuildConfiguration)/**/?(*.zip|*.exe|*.dll|*.pdb)'
         targetFolder: '$(Build.ArtifactStagingDirectory)'      
       - task: PublishBuildArtifacts@1        
-  
+        PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+        ArtifactName: 'drop1'
+        publishLocation: 'Container'
+        
  - stage: Deploy
    jobs:
    - job: Deploy
@@ -54,7 +57,7 @@ stages:
        inputs:
          buildType: 'current'
          downloadType: 'single'
-         artifactName: 'drop'         
+         artifactName: 'drop1'         
          downloadPath: '$(System.ArtifactsDirectory)'
          
      - task: AzureRmWebAppDeployment@4
@@ -63,4 +66,4 @@ stages:
          azureSubscription: 'NewServiceConnection001'
          appType: 'webApp'
          WebAppName: 'devopscicd1-dev'
-         packageForLinux: '$(System.ArtifactsDirectory)/drop/*.zip'
+         packageForLinux: '$(System.ArtifactsDirectory)/drop1/*.zip'
