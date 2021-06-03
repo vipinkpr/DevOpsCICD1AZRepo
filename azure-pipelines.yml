@@ -11,7 +11,7 @@ stages:
    jobs:
    - job: Build
      pool:
-      vmImage: 'vs2017-win2016'
+      vmImage: 'windows-latest'
 
       variables:
         solution: '**/*.sln'
@@ -39,14 +39,14 @@ stages:
             
       - task: PublishBuildArtifacts@1        
         PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-        ArtifactName: 'drop'
+        ArtifactName: 'drop1'
         publishLocation: 'Container'
         
  - stage: Deploy
    jobs:
    - job: Deploy
      pool:
-      vmImage: 'vs2017-win2016'
+      vmImage: 'windows-latest'
         
      steps:     
      - task: DownloadBuildArtifacts@0
@@ -62,4 +62,4 @@ stages:
          azureSubscription: 'NewServiceConnection001'
          appType: 'webApp'
          WebAppName: 'devopscicd1-dev'
-         packageForLinux: '$(System.ArtifactsDirectory)/drop/*.zip'
+         packageForLinux: '$(System.ArtifactsDirectory)/drop1/*.zip'
