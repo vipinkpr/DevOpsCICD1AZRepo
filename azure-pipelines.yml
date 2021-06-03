@@ -44,7 +44,7 @@ stages:
   
  - stage: Deploy
    jobs:
-   - job: Build
+   - job: Deploy
      pool:
       vmImage: 'windows-latest'
         
