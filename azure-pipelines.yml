@@ -11,7 +11,7 @@ stages:
    jobs:
    - job: Build
      pool:
-      vmImage: 'windows-latest'
+      vmImage: 'vs2017-win2016'
 
       variables:
         solution: '**/*.sln'
@@ -46,15 +46,15 @@ stages:
    jobs:
    - job: Deploy
      pool:
-      vmImage: 'windows-latest'
+      vmImage: 'vs2017-win2016'
         
      steps:     
      - task: DownloadBuildArtifacts@0
        inputs:
          buildType: 'current'
-         downloadType: 'single'
-         artifactName: 'drop'
+         downloadType: 'single'         
          downloadPath: '$(System.ArtifactsDirectory)'
+         artifactName: 'drop'
      - task: AzureRmWebAppDeployment@4
        inputs:
          ConnectionType: 'AzureRM'
