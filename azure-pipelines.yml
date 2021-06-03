@@ -36,13 +36,9 @@ stages:
         inputs:
           platform: '$(buildPlatform)'
           configuration: '$(buildConfiguration)' 
-      - task: CopyFiles@2
-        inputs:
-        sourceFolder: '$(Build.SourcesDirectory)'
-        contents: '**/$(BuildConfiguration)/**/?(*.zip|*.exe|*.dll|*.pdb)'
-        targetFolder: '$(Build.ArtifactStagingDirectory)'      
+            
       - task: PublishBuildArtifacts@1        
-        PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+        PathtoPublish: '$(Build.ArtifactStagingDirectory)\WebApp.Zip'
         ArtifactName: 'drop1'
         publishLocation: 'Container'
         
