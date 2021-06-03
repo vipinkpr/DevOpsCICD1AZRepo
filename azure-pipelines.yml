@@ -38,8 +38,8 @@ stages:
           configuration: '$(buildConfiguration)' 
             
       - task: PublishBuildArtifacts@1        
-        PathtoPublish: '$(Build.ArtifactStagingDirectory)\WebApp.Zip'
-        ArtifactName: 'drop1'
+        PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+        ArtifactName: 'drop'
         publishLocation: 'Container'
         
  - stage: Deploy
@@ -62,4 +62,4 @@ stages:
          azureSubscription: 'NewServiceConnection001'
          appType: 'webApp'
          WebAppName: 'devopscicd1-dev'
-         packageForLinux: '$(System.ArtifactsDirectory)/drop1/*.zip'
+         packageForLinux: '$(System.ArtifactsDirectory)/drop/*.zip'
