@@ -6,65 +6,31 @@
 trigger:
 - master
 
-stages:
- - stage: Build
-   jobs:
-   - job: Build
-     pool:
-      vmImage: 'vs2017-win2016'
+pool:
+  vmImage: 'windows-latest'
 
-      variables:
-        solution: '**/*.sln'
-        buildPlatform: 'Any CPU'
-        buildConfiguration: 'Release'
-        
-      steps:
-      - task: NuGetToolInstaller@1
+variables:
+  solution: '**/*.sln'
+  buildPlatform: 'Any CPU'
+  buildConfiguration: 'Release'
 
-      - task: NuGetCommand@2
-        inputs:
-          restoreSolution: '$(solution)'
+steps:
+- task: NuGetToolInstaller@1
 
-      - task: VSBuild@1
-        inputs:
-          solution: '$(solution)'
-          msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:DesktopBuildPackageLocation="$(build.artifactStagingDirectory)\WebApp.zip" /p:DeployIisAppPath="Default Web Site"'
-          platform: '$(buildPlatform)'
-          configuration: '$(buildConfiguration)'
+- task: NuGetCommand@2
+  inputs:
+    restoreSolution: '$(solution)'
 
-      - task: VSTest@2
-        inputs:
-          platform: '$(buildPlatform)'
-          configuration: '$(buildConfiguration)' 
-      - task: CopyFiles@2
-        inputs:
-        sourceFolder: '$(Build.SourcesDirectory)'
-        contents: '**/$(BuildConfiguration)/**/?(*.zip|*.exe|*.dll|*.pdb)'
-        targetFolder: '$(Build.ArtifactStagingDirectory)'      
-      - task: PublishBuildArtifacts@1
-        inputs:
-          PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-          ArtifactName: 'drop'
-          publishLocation: 'Container'
-  
- - stage: Deploy
-   jobs:
-   - job: Deploy
-     pool:
-      vmImage: 'vs2017-win2016'
-        
-     steps:     
-     - task: DownloadBuildArtifacts@0
-       inputs:
-         buildType: 'current'
-         downloadType: 'single'
-         artifactName: 'drop'         
-         downloadPath: '$(System.ArtifactsDirectory)'
-         
-     - task: AzureRmWebAppDeployment@4
-       inputs:
-         ConnectionType: 'AzureRM'
-         azureSubscription: 'NewServiceConnection001'
-         appType: 'webApp'
-         WebAppName: 'devopscicd1-dev'
-         packageForLinux: '$(System.ArtifactsDirectory)/drop/*.zip'
+- task: VSBuild@1
+  inputs:
+    solution: '$(solution)'
+    msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:DesktopBuildPackageLocation="$(build.artifactStagingDirectory)\WebApp.zip" /p:DeployIisAppPath="Default Web Site"'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+
+- task: VSTest@2
+  inputs:
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+
+    
