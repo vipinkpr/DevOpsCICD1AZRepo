@@ -63,4 +63,4 @@ stages:
          azureSubscription: 'Pay-As-You-Go(4fd60067-9802-459f-8a72-f79f166685d7)'
          appType: 'webApp'
          WebAppName: 'devopscicd1-dev'
-         packageForLinux: '$(System.DefaultWorkingDirectory)/drop1/*.zip'
+         packageForLinux: '$(System.ArtifactsDirectory)/drop1/*.zip'
