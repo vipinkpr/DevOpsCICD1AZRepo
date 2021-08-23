@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Projects\\DevOps\\DevOpsCICD1\\DevOpsCICD1\\DevOpsCICD1.csproj": {}
+    "C:\\Projects\\GitHub\\DevOpsCICD1AZRepo\\DevOpsCICD1\\DevOpsCICD1.csproj": {}
   },
   "projects": {
-    "C:\\Projects\\DevOps\\DevOpsCICD1\\DevOpsCICD1\\DevOpsCICD1.csproj": {
+    "C:\\Projects\\GitHub\\DevOpsCICD1AZRepo\\DevOpsCICD1\\DevOpsCICD1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Projects\\DevOps\\DevOpsCICD1\\DevOpsCICD1\\DevOpsCICD1.csproj",
+        "projectUniqueName": "C:\\Projects\\GitHub\\DevOpsCICD1AZRepo\\DevOpsCICD1\\DevOpsCICD1.csproj",
         "projectName": "DevOpsCICD1",
-        "projectPath": "C:\\Projects\\DevOps\\DevOpsCICD1\\DevOpsCICD1\\DevOpsCICD1.csproj",
+        "projectPath": "C:\\Projects\\GitHub\\DevOpsCICD1AZRepo\\DevOpsCICD1\\DevOpsCICD1.csproj",
         "packagesPath": "C:\\Users\\JNTN\\.nuget\\packages\\",
-        "outputPath": "C:\\Projects\\DevOps\\DevOpsCICD1\\DevOpsCICD1\\obj\\",
+        "outputPath": "C:\\Projects\\GitHub\\DevOpsCICD1AZRepo\\DevOpsCICD1\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -60,7 +60,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.204\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.206\\RuntimeIdentifierGraph.json"
         }
       }
     }
