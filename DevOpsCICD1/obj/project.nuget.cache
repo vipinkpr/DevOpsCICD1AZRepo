@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "qvuhLdszh92A0YePV2owrwCHW0rJTg499t0hBN4KQzvluhJNhjGzpgHFObs0dmeqYRx3KMSr5ftMGmKZI6ncjA==",
+  "dgSpecHash": "B0H69IW+TGQ4U2Ly/1XY0yBQeKKtAIGu5Pc7bCiH8RSofQXYmp5R+vB25VdD9D+g3Fq9qurP9xWXqnYYnuUC8g==",
   "success": true,
-  "projectFilePath": "C:\\Projects\\DevOps\\DevOpsCICD1\\DevOpsCICD1\\DevOpsCICD1.csproj",
+  "projectFilePath": "C:\\Projects\\GitHub\\DevOpsCICD1AZRepo\\DevOpsCICD1\\DevOpsCICD1.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
